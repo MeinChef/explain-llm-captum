@@ -1,6 +1,6 @@
 # import torch
 from captum.attr import ShapleyValueSampling, LLMAttribution, TextTemplateInput, ProductBaselines
-
+import time
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 def setup():
@@ -9,11 +9,15 @@ def setup():
 
     # model = AutoModelForCausalLM.from_pretrained("TinyLlama/TinyLlama-1.1B-Chat-v1.0")
     # tokenizer = AutoTokenizer.from_pretrained("TinyLlama/TinyLlama-1.1B-Chat-v1.0")
+
+    # 300MB model, script takes 20s to run on GPU
+    # also distilgpt is more biased, this should be great
     model = AutoModelForCausalLM.from_pretrained("distilbert/distilgpt2")
     tokenizer = AutoTokenizer.from_pretrained("distilbert/distilgpt2")
     return model, tokenizer
 
 def do_stuff(model, tokenizer):
+    now = time.time()
     svs = ShapleyValueSampling(model)
     baselines = ProductBaselines(
             {
@@ -36,9 +40,10 @@ def do_stuff(model, tokenizer):
             baselines = baselines ,
         )
     attr_result = llm_attr.attribute(inp, target= "playing golf, hiking, and cooking.")
-    
+    print(f"Time: {time.time()-now}s")
     return attr_result
 
 if __name__ == "__main__":
     model, tokenizer = setup()
-    print(do_stuff(model, tokenizer))
+    res = do_stuff(model, tokenizer)
+    res.plot_token_attr(show = True)

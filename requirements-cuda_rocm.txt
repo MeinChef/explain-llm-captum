@@ -1,4 +1,4 @@
-pytorch+cpu==2.9.0
+pytorch==2.9.0
 captum==0.8.0
 transformers==4.57.1
 ipykernel==7.1.0

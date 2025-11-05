@@ -1,2 +1,4 @@
+https://download.pytorch.org/whl/cpu
 captum
 transformers
+ipykernel

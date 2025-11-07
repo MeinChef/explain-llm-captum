@@ -8,7 +8,9 @@ This repository is for the course "Explainability of LLMs" at University of Osnb
 ---
 ## Overview
 This repository is demonstarting how to use [Captum](https://github.com/meta-pytorch/captum) [[Miglani et al., 2023]](#references) for explaining Generative Language Models.
-Captum is a 
+Captum is a PyTorch library for model interpretability that provides tools to analyze and understand how LLMs make predictions. It allows you to attribute the output of a model to its input features, helping answer questions like “Which tokens or words in this text most influenced the model’s prediction?”
+
+Captum includes several attribution methods such as Feature Ablation, Integrated Gradients, and Shapley Value Sampling, which can be used to evaluate token-level contributions and better understand the internal reasoning of generative models.
 ## QuickStart
 If you do not want to run this demo locally, you can also look at it on [google collab](https://colab.research.google.com/drive/1-T0mja-TGL2h_v4_bXKhyY_fYDd8JdEj?usp=sharing).
 Otherwise, please follow the next steps:

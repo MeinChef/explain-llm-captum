@@ -3,6 +3,7 @@ This repository is for the course "Explainability of LLMs" at University of Osnb
 ## **Table of Contents**
 - [Overview](#overview)
 - [QuickStart](#quickstart)
+- [Attribution Methods](#different-attribution-methods)
 - [Structure of this Repository](#structure-of-this-repository)
 - [References](#references)
 ---
@@ -21,7 +22,6 @@ Per default, Captum only supports perturbation based methods for LLMAttribution,
 
 In the other Jupyter Notebook, `grad_captum.ipynb`, we created our own, feed-forward text classification model. Its architecture allows for gradient based methods to be evaluated. We also provided a pre-trained model (`bow_text_classifier.pt`), so that you don't have to do the training.
 
----
 ## QuickStart
 If you do not want to run this demo locally, you can also look at it on Google Colab:
 - [Perturbation-Based](https://colab.research.google.com/drive/1-T0mja-TGL2h_v4_bXKhyY_fYDd8JdEj?usp=sharing).
